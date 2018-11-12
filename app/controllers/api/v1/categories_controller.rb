@@ -1,5 +1,5 @@
 module Api::V1
-  class SchedulesController < ApplicationController
+  class CategoriesController < ApplicationController
 
     def index
     end
@@ -16,7 +16,7 @@ module Api::V1
     private
 
       def idea_params
-        params.require(:schedule).permit(:date, :hours, :user_id)
+        params.require(:category).permit(:name, :user_id, :schedule_id)
       end
 
   end
