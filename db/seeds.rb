@@ -22,5 +22,5 @@ ideas = Idea.create(
     {
       title: "Card game design",
       body: "Like Uno but involves drinking"
-    }
+    } 
   ])
