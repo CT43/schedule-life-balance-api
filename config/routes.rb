@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         resources :ideas
+        resources :users
+        resources :categories
+        resources :schedules
+        resources :activities
       end
     end
   end
