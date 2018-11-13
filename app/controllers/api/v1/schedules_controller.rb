@@ -8,6 +8,7 @@ module Api::V1
 
     def show
       @schedule = Schedule.find_by(id: params[:id])
+      render json: @schedule
     end
 
     def create
