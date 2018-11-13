@@ -6,7 +6,6 @@ module Api::V1
 
     def create
       @activity = Activity.create(activity_params)
-      binding.pry
       render json: @activity
     end
 
