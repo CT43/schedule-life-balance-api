@@ -5,6 +5,9 @@ module Api::V1
     end
 
     def create
+      @activity = Activity.create(activity_params)
+      binding.pry
+      render json: @activity
     end
 
     def update
@@ -15,8 +18,8 @@ module Api::V1
 
     private
 
-      def idea_params
-        params.require(:activity).permit(:name, :duration, :schedule_id, :category_id)
+      def activity_params
+        params.require(:activity).permit(:name, :duration, :schedule_id, :category_id, :start_time, :end_time)
       end
 
   end
