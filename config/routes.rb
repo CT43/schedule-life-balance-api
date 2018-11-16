@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       namespace :v1 do
         get "/schedule/:id", to: "schedules#show"
         get "/activity/:q", to: "activities#index"
-        resources :ideas
         resources :users
         resources :categories
         resources :schedules

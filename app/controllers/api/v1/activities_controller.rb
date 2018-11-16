@@ -8,7 +8,6 @@ module Api::V1
     end
 
     def create
-
       @activity = Activity.new(activity_params)
       @activity.duration_min = @activity.end_time_min - @activity.start_time_min
       @activity.save
