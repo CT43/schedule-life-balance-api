@@ -2,10 +2,9 @@ module Api::V1
   class ActivitiesController < ApplicationController
 
     def index
-      binding.pry
       @activities = Activity.all
-      @activities.select { |activity| activity.schedule_id === params[:q]}
-      render json: @activities
+      selectedActivities = @activities.select { |activity| activity.schedule_id === params[:q].to_i}
+      render json: selectedActivities
     end
 
     def create
@@ -20,6 +19,12 @@ module Api::V1
     end
 
     def destroy
+      @activity = Activity.find(params[:id])
+      if @activity.destroy
+        head :no_content, status: :ok
+      else
+        render json: @activity.errors, status: :unprocessable_entity
+      end
     end
 
     private
