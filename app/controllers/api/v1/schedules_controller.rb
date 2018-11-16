@@ -20,6 +20,12 @@ module Api::V1
     end
 
     def destroy
+      @schedule = Schedule.find(params[:id])
+      if @schedule.destroy
+        head :no_content, status: :ok
+      else
+        render json: @schedule.errors, status: :unprocessable_entity
+      end
     end
 
     private
